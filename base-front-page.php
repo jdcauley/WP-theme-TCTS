@@ -22,7 +22,7 @@
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <section class="summary">
     <div class="container">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-10 col-sm-offset-2">
         <?php the_content(); ?>
       </div>
     </div>
@@ -32,33 +32,29 @@
     <div class="container">
       <div class="col-sm-6">
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-5">
             <?php if(get_field('left_surgery_image')): ?>
-            <img class="img-responsive img-rounded" src="<?php get_field('left_surgery_image'); ?>">
+            <img class="img-responsive img-circle" src="<?php the_field('left_surgery_image'); ?>">
             <?php endif; ?>
           </div>
-          <div class="col-sm-9">
-            <?php if(get_field('left_surgery_title')): ?>
-            <h3><?php get_field('left_surgery_title'); ?></h3>
-            <h5><?php get_field('left_surgery_sub_title'); ?></h5>
-            <p><?php get_field('left_surgery_text'); ?><p>
-            <?php endif; ?>
+          <div class="col-sm-7">
+            <h3><?php the_field('left_surgery_title'); ?></h3>
+            <h5><?php the_field('left_surgery_sub_title'); ?></h5>
+            <p><?php the_field('left_surgery_text'); ?><p>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-5">
             <?php if(get_field('right_surgery_image')): ?>
-            <img class="img-responsive img-rounded" src="<?php get_field('right_surgery_image'); ?>">
+            <img class="img-responsive img-circle" src="<?php the_field('right_surgery_image'); ?>">
             <?php endif; ?>
           </div>
-          <div class="col-sm-9">
-            <?php if(get_field('right_surgery_title')): ?>
-            <h3><?php get_field('right_surgery_title'); ?></h3>
-            <h5><?php get_field('right_surgery_sub_title'); ?></h5>
-            <p><?php get_field('right_surgery_text'); ?><p>
-            <?php endif; ?>
+          <div class="col-sm-7">
+            <h3><?php the_field('right_surgery_title'); ?></h3>
+            <h5><?php the_field('right_surgery_sub_title'); ?></h5>
+            <p><?php the_field('right_surgery_text'); ?><p>
           </div>
         </div>
       </div>
@@ -70,18 +66,21 @@
   <section class="programs">
     <div class="container">
       <div class="row">
+        <div class="col-sm-12">
+          <h2>Programs and Specialties</h2>
+        </div>
         <?php query_posts('post_type=programs&showposts=6'); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
         <div class="col-sm-4">
         <?php if (has_post_thumbnail()): ?>
           <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' ); ?>
-          <a href="<?php the_permalink(); ?>" style="background-image:url(<?php echo $src[0]; ?>)">
-            <div class="caption"><?php the_title(); ?></div>
+          <a class="programs-post-image" href="<?php the_permalink(); ?>" style="background-image:url(<?php echo $src[0]; ?>)">
+            <span class="caption"><?php the_title(); ?></span>
           </a>
           <?php else: ?>
           <a href="<?php the_permalink(); ?>" style="background-image:url(<?php echo get_template_directory_uri(); ?>/assets/img/disasters/fire.png)">
-            <div class="caption"><?php the_title(); ?></div>
+            <span class="caption"><?php the_title(); ?></span>
           </a>
     	  <?php endif; ?>
         <?php the_excerpt(); ?>
@@ -92,7 +91,7 @@
     </div>
   </section>
 
-  <section class="programs">
+  <section class="physicians">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -101,9 +100,9 @@
         <?php query_posts('post_type=physicians&showposts=5'); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <div class="col-sm-2">
+        <div class="col-sm-2 col-md-">
         <?php if (has_post_thumbnail()): ?>
-          <?php the_post_thumbnail('', array('class' => 'img-responsive img-round')); ?>
+          <?php the_post_thumbnail('', array('class' => 'img-responsive img-circle')); ?>
           <a href="<?php the_permalink(); ?>" style="background-image:url(<?php echo $src[0]; ?>)">
             <div class="caption"><?php the_title(); ?></div>
           </a>
@@ -112,8 +111,7 @@
             <div class="caption"><?php the_title(); ?></div>
           </a>
         <?php endif; ?>
-          <h5><?php the_title(); ?></h5>
-          <p><?php the_excerpt(); ?></p>
+          <p><?php echo excerpt(25); ?></p>
         </div>
         <?php endwhile; endif; ?>
         <div class="col-sm-2">
