@@ -14,12 +14,23 @@ function roots_widgets_init() {
   ));
 
   register_sidebar(array(
-    'name'          => __('Home Page Slide Show', 'roots'),
-    'id'            => 'slider',
+    'name'          => __('Header Area', 'roots'),
+    'id'            => 'header-widgets',
+    'description'   => 'This area is above the top menu.',
     'before_widget' => '',
     'after_widget'  => '',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ));
+
+  register_sidebar(array(
+    'name'          => __('Home Page Slide Show', 'roots'),
+    'id'            => 'slider',
+    'description'   => 'Add your slider here and it will be available in the homepage layout.',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '',
+    'after_title'   => '',
   ));
 
   register_sidebar(array(

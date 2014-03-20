@@ -22,7 +22,7 @@
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <section class="summary">
     <div class="container">
-      <div class="col-sm-10 col-sm-offset-2">
+      <div class="col-sm-10 col-sm-offset-1">
         <?php the_content(); ?>
       </div>
     </div>
