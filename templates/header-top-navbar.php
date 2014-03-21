@@ -20,6 +20,7 @@
       </div>
     </div>
   </div>
+  <div class="affix-container" data-spy="affix" data-offset-top="110">
   <div class="navbar navbar-tcts navbar-static-top">
     <div class="container">
       <div class="navbar-header">
@@ -41,4 +42,5 @@
       </nav>
     </div>
   </div>
+</div>
 </header>

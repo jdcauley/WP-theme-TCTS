@@ -43,9 +43,10 @@
 @font-family-sans-serif:  Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @brand-primary:         #0098a7;
-@brand-red:             #428bca;
+@brand-red:             rgba(180, 70, 71, 1);
 @brand-blue:            #011f40;
 @white:                 #fff;
+@black:                 #000;
 
 /* ==========================================================================
    Base
@@ -68,8 +69,31 @@ body { }
 .header-content{
   margin-top: 15px;
 }
+.affix-container{
+  width: 100%;
+  height: auto;
+  background: @white;
+  &.affix{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+}
 .navbar-tcts{
   .navbar-default;
+  margin-bottom: -10px;
+  .nav-pills{
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+.nav>li>a{
+  color: @black;
+}
+.nav>li>a:hover, .nav>li>a:focus{
+  color: @white;
+  background: @brand-red;
 }
 
 /* ==========================================================================

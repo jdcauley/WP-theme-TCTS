@@ -6,3 +6,10 @@
 </footer>
 
 <?php wp_footer(); ?>
+<script>
+  var controller = new ScrollMagic();
+
+// assign handler "scene" and add it to Controller
+  var scene = new ScrollScene({duration: 100})
+                .addTo(controller);
+</script>
