@@ -97,27 +97,31 @@
         <div class="col-lg-12">
           <h3>Meet Our Physicians</h3>
         </div>
-        <?php query_posts('post_type=physicians&showposts=5'); ?>
+
+        <?php query_posts('post_type=physicians&showposts=6'); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <div class="col-sm-2 col-md-">
-        <?php if (has_post_thumbnail()): ?>
-          <?php the_post_thumbnail('', array('class' => 'img-responsive img-circle')); ?>
-          <a href="<?php the_permalink(); ?>" style="background-image:url(<?php echo $src[0]; ?>)">
-            <div class="caption"><?php the_title(); ?></div>
-          </a>
-          <?php else: ?>
-          <a href="<?php the_permalink(); ?>" style="background-image:url(<?php echo get_template_directory_uri(); ?>/assets/img/disasters/fire.png)">
-            <div class="caption"><?php the_title(); ?></div>
-          </a>
-        <?php endif; ?>
-          <p><?php echo excerpt(25); ?></p>
+        <div class="col-sm-4">
+          <div class="row">
+
+            <?php if (has_post_thumbnail()): ?>
+              <div class="col-sm-5">
+                <?php the_post_thumbnail('', array('class' => 'img-responsive img-circle')); ?>
+              </div>
+              <?php else: ?>
+            <?php endif; ?>
+
+              <div class="col-sm-7">
+                <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                <p><?php echo excerpt(25); ?></p>
+              </div>
+
         </div>
+      </div>
         <?php endwhile; endif; ?>
-        <div class="col-sm-2">
-          <h5>Our Staff</h5>
-          <p>Not sure what this needs to be.</p>
-        </div>
+
+
+
       </div>
     </div>
   </section>
