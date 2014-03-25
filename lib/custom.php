@@ -48,3 +48,9 @@ function excerpt($limit) {
   $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
   return $excerpt;
 }
+
+function fw_stripe($atts, $content = null) {
+    extract(shortcode_atts(array('background' => '', 'color' => ''), $atts));
+   return '</div></div></main><div class="fw-stripe" style="color: '.$color.'; background: '.$background.';"><div class="container">' . do_shortcode($content) . '</div></div><div class="wrap container"><div class="content row"><main class="main col-sm-12">';
+}
+add_shortcode('stripe', 'fw_stripe');
