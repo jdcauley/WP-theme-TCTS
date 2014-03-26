@@ -74,3 +74,10 @@ function myFeedExcluder($query) {
 }
 add_filter('pre_get_posts','myFeedExcluder');
 */
+
+function exclude_category( $query ) {
+    if ( $query->is_post_type_archive('physicians') && $query->is_main_query() ) {
+        $query->set( 'cat', '-8' );
+    }
+}
+add_action( 'pre_get_posts', 'exclude_category' );
