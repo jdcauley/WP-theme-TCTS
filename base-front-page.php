@@ -63,7 +63,7 @@
   <?php endwhile; endif; ?>
 
 
-  <section class="programs">
+  <section class="fp-programs">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -72,7 +72,7 @@
         <?php query_posts('post_type=programs&showposts=6'); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 programs-col">
         <?php if (has_post_thumbnail()): ?>
           <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' ); ?>
           <a class="programs-post-image" href="<?php the_permalink(); ?>" style="background-image:url(<?php echo $src[0]; ?>)">

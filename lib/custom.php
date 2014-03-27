@@ -38,12 +38,14 @@ add_action( 'init', 'custom_physicians_posts' );
 // Remove sidebar from Physician Page
 add_filter('roots_display_sidebar', 'roots_sidebar_on_physician_archive');
 
+/*
 function roots_sidebar_on_physician_archive($sidebar) {
   if (is_post_type_archive('physicians')) {
     return false;
   }
   return $sidebar;
 }
+*/
 
 // Variable Excerpt Length
 
@@ -77,7 +79,7 @@ add_filter('pre_get_posts','myFeedExcluder');
 
 function exclude_category( $query ) {
     if ( $query->is_post_type_archive('physicians') && $query->is_main_query() ) {
-        $query->set( 'cat', '-8' );
+        $query->set( 'cat', '-8, -7' );
     }
 }
 add_action( 'pre_get_posts', 'exclude_category' );
